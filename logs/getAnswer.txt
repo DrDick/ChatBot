@@ -1,0 +1,16 @@
+Array
+(
+    [$command] => /echolist
+    [$userId] => 13815
+)
+
+Array
+(
+    [$arResult] => Array
+        (
+            [title] => Туплю-с
+            [report] => Не соображу, что вы хотите узнать. А может вообще не умею...
+        )
+
+)
+

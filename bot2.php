@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 
-define('DEBUG_FILE_NAME', ''); // if you need read debug log, you should write unique log name
+define('DEBUG_FILE_NAME', __DIR__.'/logs/eventHandler.txt'); // if you need read debug log, you should write unique log name
 define('CLIENT_ID', 'local.6289e177d42668.97052104'); // like 'app.67efrrt2990977.85678329' or 'local.57062d3061fc71.97850406' - This code should take in a partner's site, needed only if you want to write a message from Bot at any time without initialization by the user
 define('CLIENT_SECRET', 'A82EMzHE3un07sMmboyPXqyYHXeaDkEgb5eP8sum8dOwKb8fxq'); // like '8bb00435c88aaa3028a0d44320d60339' - This code should take in a partner's site, needed only if you want to write a message from Bot at any time without initialization by the user
 
@@ -61,14 +61,14 @@ else if ($_REQUEST['event'] == 'ONAPPINSTALL')
 
     // register new bot
     $result = restCommand('imbot.register', Array(
-        'CODE' => 'itrbot',
+        'CODE' => 'ddplanet',
         'TYPE' => 'O',
         'EVENT_MESSAGE_ADD' => $handlerBackUrl,
         'EVENT_WELCOME_MESSAGE' => $handlerBackUrl,
         'EVENT_BOT_DELETE' => $handlerBackUrl,
         'OPENLINE' => 'Y',
         'PROPERTIES' => Array(
-            'NAME' => 'ITR Bot for Open Channels #'.(count($appsConfig)+1),
+            'NAME' => 'DDplanet Bot'.(count($appsConfig)+1),
             'WORK_POSITION' => "Get ITR menu for you open channel",
             'COLOR' => 'RED',
         )
@@ -125,6 +125,7 @@ else if ($_REQUEST['event'] == 'ONAPPUPDATE')
     writeToLog($result, 'ImBot update event');
 }
 
+
 /**
  * Run ITR menu
  *
@@ -134,6 +135,7 @@ else if ($_REQUEST['event'] == 'ONAPPUPDATE')
  * @param string $message
  * @return bool
  */
+
 function itrRun($portalId, $dialogId, $userId, $message = '')
 {
     if ($userId <= 0)

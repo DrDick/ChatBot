@@ -1,0 +1,14 @@
+Array
+(
+    [$params] => Array
+        (
+            [419f09a694685212cc4a01ff2e629a36] => Array
+                (
+                    [BOT_ID] => 15265
+                    [LANGUAGE_ID] => ru
+                )
+
+        )
+
+)
+

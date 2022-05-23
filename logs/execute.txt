@@ -1,0 +1,84 @@
+Array
+(
+    [$_REQUEST] => Array
+        (
+            [event] => ONIMBOTMESSAGEADD
+            [data] => Array
+                (
+                    [BOT] => Array
+                        (
+                            [15265] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => 419f09a694685212cc4a01ff2e629a36
+                                    [AUTH] => Array
+                                        (
+                                            [domain] => p1.infoflot.ddp-dev.ru
+                                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                            [application_token] => 419f09a694685212cc4a01ff2e629a36
+                                        )
+
+                                    [BOT_ID] => 15265
+                                    [BOT_CODE] => InfoflotBot
+                                )
+
+                        )
+
+                    [PARAMS] => Array
+                        (
+                            [FROM_USER_ID] => 13815
+                            [TO_USER_ID] => 15265
+                            [MESSAGE] => /echoList
+                            [TEMPLATE_ID] => temp9
+                            [MESSAGE_TYPE] => P
+                            [SKIP_COMMAND] => N
+                            [SKIP_CONNECTOR] => N
+                            [IMPORTANT_CONNECTOR] => N
+                            [SILENT_CONNECTOR] => N
+                            [AUTHOR_ID] => 13815
+                            [CHAT_ID] => 176209
+                            [COMMAND_CONTEXT] => TEXTAREA
+                            [DIALOG_ID] => 13815
+                            [MESSAGE_ID] => 2530219
+                            [CHAT_TYPE] => P
+                            [LANGUAGE] => ru
+                        )
+
+                    [USER] => Array
+                        (
+                            [ID] => 13815
+                            [NAME] => Никита Филитов
+                            [FIRST_NAME] => Никита
+                            [LAST_NAME] => Филитов
+                            [WORK_POSITION] => 
+                            [GENDER] => M
+                            [IS_BOT] => N
+                            [IS_CONNECTOR] => N
+                            [IS_NETWORK] => N
+                            [IS_EXTRANET] => N
+                        )
+
+                )
+
+            [ts] => 1653144143
+            [auth] => Array
+                (
+                    [access_token] => 5f088962005b8db80044c592000035f7000003861e24f25d74407bb737549bbb50d78c
+                    [expires] => 1653147743
+                    [expires_in] => 3600
+                    [scope] => crm,imbot,tasks_extended
+                    [domain] => p1.infoflot.ddp-dev.ru
+                    [server_endpoint] => https://oauth.bitrix.info/rest/
+                    [status] => L
+                    [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                    [user_id] => 13815
+                    [refresh_token] => 4f87b062005b8db80044c592000035f70000038b1fe2aae5096bdc7f1491e85730e3d8
+                    [application_token] => 419f09a694685212cc4a01ff2e629a36
+                )
+
+        )
+
+)
+
