@@ -164,6 +164,37 @@ class chatBot
         return $this->restCommand('task.item.list', $restParams) ?: [];
     }
 
+    function getMenu ($result): array
+    {
+
+        restCommand('imbot.command.answer', Array(
+           "COMMAND_ID" => $result['COMMAND_ID'],
+            "MESSAGE_ID" => $result['MESSAGE_ID'],
+            "MESSAGE" => "Привет! Я Инфофлот бот",
+            "KEYBOARD" => Array(
+                Array(
+                    "TEXT" => "Bitrix24",
+                    "LINK" => "http://bitrix24.com",
+                    "BG_COLOR" => "#29619b",
+                    "TEXT_COLOR" => "#fff",
+                    "DISPLAY" => "LINE",
+                ),
+                Array(
+                    "TEXT" => "BitBucket",
+                    "LINK" => "https://bitbucket.org/Bitrix24com/rest-bot-echotest",
+                    "BG_COLOR" => "#2a4c7c",
+                    "TEXT_COLOR" => "#fff",
+                    "DISPLAY" => "LINE",
+                ),
+                Array("TYPE" => "NEWLINE"), // перенос строки
+                Array("TEXT" => "Echo", "COMMAND" => "echo", "COMMAND_PARAMS" => "test from keyboard", "DISPLAY" => "LINE"),
+                Array("TEXT" => "List", "COMMAND" => "echoList", "DISPLAY" => "LINE"),
+                Array("TEXT" => "Help", "COMMAND" => "help", "DISPLAY" => "LINE"),
+            )
+        ), $_REQUEST["auth"]);
+    }
+
+
     function getUserTasksReport(int $userId): array
     {
         $tasks = $this->getUserTasks($userId);
@@ -202,18 +233,39 @@ class chatBot
         return $arReport;
     }
 
+
+
     protected function getAnswer(string $message, ?int $userId = null): array
     {
         switch (mb_strtolower($message)) {
             case 'что горит':
                 $arAnswer = $this->getUserTasksReport($userId);
                 break;
+
+            case '1':
+                $restParams =  Array(
+                    'BOT_ID' => 15273, // Идентификатор чат-бота владельца команды
+                    'COMMAND' => '1', // Текст команды, которую пользователь будет вводить в чатах
+                    'COMMON' => 'Y', // Если указан Y, то команда доступна во всех чатах, если N - то доступна только в тех, где присутствует чат-бот
+                    'HIDDEN' => 'N', // Скрытая команда или нет - по умолчанию N
+                    'EXTRANET_SUPPORT' => 'N', // Доступна ли команда пользователям Экстранет, по умолчанию N
+                    'CLIENT_ID' => '', // Строковый идентификатор чат-бота, используется только в режиме Вебхуков
+                    'LANG' => Array( // Массив переводов, обязательно указывать как минимум для RU и EN
+                        Array('LANGUAGE_ID' => 'en', 'TITLE' => 'Get echo message', 'PARAMS' => 'some text'), // Язык, описание команды, какие данные после команды нужно вводить.
+                    ),
+                    'EVENT_COMMAND_ADD' => 'https://p1.infoflot.ddp-dev.ru/bot3.php', // Ссылка на обработчик для команд
+                );
+                $result = $this->restCommand('imbot.comand.register', $restParams);
+                $arAnswer = $this->getMenu($result);
+                break;
+
             case 'привет':
                 $arAnswer = [
                     'title' => 'Привет!',
                     'report' => 'Как у тебя настроение?'
                 ];
                 break;
+
             default:
                 $arAnswer = [
                     'title' => 'Туплю-с',
@@ -236,12 +288,14 @@ class chatBot
         ], 'onImBotMessageAdd');
 
         $arAnswer = $this->getAnswer($_REQUEST['data']['PARAMS']['MESSAGE'], $_REQUEST['data']['PARAMS']['FROM_USER_ID']);
-        $attachMessage = 'Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!';
+        $arAnswer['attach'][] = [
+            'MESSAGE' => 'Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!'
+        ];
 
         $restParams = [
             "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
             "MESSAGE" => $arAnswer['title'] . "\n" . $arAnswer['report'] . "\n",
-            "ATTACH" => [["MESSAGE" => $attachMessage]],
+            "ATTACH" => $arAnswer['attach'],
         ];
 
         $this->restCommand('imbot.message.add', $restParams);
@@ -253,13 +307,11 @@ class chatBot
         if (empty($this->getChatBotConfig())) {
             return;
         }
-
-        $attachMessage = '[send=что горит]Что горит?[/send]';
-
+        
         $restParams = [
             'DIALOG_ID' => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
             'MESSAGE' => 'Привет! Я Докладун, докладываю все как есть.',
-            "ATTACH" => [['MESSAGE' => $attachMessage]],
+            "ATTACH" => [['MESSAGE' => '[send=что горит]Что горит?[/send]']],
         ];
 
         $this->restCommand('imbot.message.add', $restParams);
@@ -288,7 +340,7 @@ class chatBot
             'EVENT_WELCOME_MESSAGE' => $handlerBackUrl,
             'EVENT_BOT_DELETE' => $handlerBackUrl,
             'PROPERTIES' => [
-                'NAME' => 'DDPlanet Bot' . (count($appsConfig) + 1),
+                'NAME' => 'DDPlanet Bot2',
                 'LAST_NAME' => '',
                 'COLOR' => 'RED',
                 'EMAIL' => 'no@mail.com',
