@@ -54,7 +54,7 @@ else if ($_REQUEST['event'] == 'ONIMBOTDELETE')
 else if ($_REQUEST['event'] == 'ONAPPINSTALL')
 {
     // handler for events
-    $handlerBackUrl = ($_SERVER['SERVER_PORT']==443||$_SERVER["HTTPS"]=="on"? 'https': 'http')."://".$_SERVER['SERVER_NAME'].(in_array($_SERVER['SERVER_PORT'], Array(80, 443))?'':':'.$_SERVER['SERVER_PORT']).$_SERVER['SCRIPT_NAME'];
+    $handlerBackUrl = "https://p1.infoflot.ddp-dev.ru/chatapi/bot2.php";
 
     // If your application supports different localizations
     // use $_REQUEST['data']['LANGUAGE_ID'] to load correct localization

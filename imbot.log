@@ -1,0 +1,2112 @@
+
+------------------------
+2022.05.24 14:38:51
+__construct
+Array
+(
+    [event] => ONAPPINSTALL
+    [data] => Array
+        (
+            [VERSION] => 1
+            [LANGUAGE_ID] => ru
+        )
+
+    [ts] => 1653392331
+    [auth] => Array
+        (
+            [access_token] => dbd18c62005b9ee00044c592000035f7000003e3d6d94ebfce40be6e0b6211c7e8bf31
+            [expires] => 1653395931
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => cb50b462005b9ee00044c592000035f7000003c93ae46370ce4eb4c34fd08f37226458
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:38:51
+eventHandler
+ONAPPINSTALL
+------------------------
+
+------------------------
+2022.05.24 14:38:51
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.register
+    [PARAMS] => Array
+        (
+            [CODE] => ddplanet
+            [TYPE] => O
+            [EVENT_MESSAGE_ADD] => https://p1.infoflot.ddp-dev.ru/chatapi/bot3.php
+            [EVENT_WELCOME_MESSAGE] => https://p1.infoflot.ddp-dev.ru/chatapi/bot3.php
+            [EVENT_BOT_DELETE] => https://p1.infoflot.ddp-dev.ru/chatapi/bot3.php
+            [PROPERTIES] => Array
+                (
+                    [NAME] => DDPlanet Bot2
+                    [LAST_NAME] => 
+                    [COLOR] => RED
+                    [EMAIL] => no@mail.com
+                    [PERSONAL_BIRTHDAY] => 2022-05-24
+                    [PERSONAL_WWW] => 
+                    [PERSONAL_GENDER] => M
+                )
+
+            [auth] => dbd18c62005b9ee00044c592000035f7000003e3d6d94ebfce40be6e0b6211c7e8bf31
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:38:53
+restCommand result
+Array
+(
+    [result] => 15273
+    [time] => Array
+        (
+            [start] => 1653392331.9678
+            [finish] => 1653392333.3586
+            [duration] => 1.3907699584961
+            [processing] => 1.189954996109
+            [date_start] => 2022-05-24T14:38:51+03:00
+            [date_finish] => 2022-05-24T14:38:53+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:38:53
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/event.bind
+    [PARAMS] => Array
+        (
+            [EVENT] => OnAppUpdate
+            [HANDLER] => https://p1.infoflot.ddp-dev.ru/chatapi/bot3.php
+            [auth] => dbd18c62005b9ee00044c592000035f7000003e3d6d94ebfce40be6e0b6211c7e8bf31
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:38:53
+restCommand result
+Array
+(
+    [result] => 1
+    [time] => Array
+        (
+            [start] => 1653392333.4519
+            [finish] => 1653392333.5469
+            [duration] => 0.094953060150146
+            [processing] => 0.050107002258301
+            [date_start] => 2022-05-24T14:38:53+03:00
+            [date_finish] => 2022-05-24T14:38:53+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:38:53
+onAppInstall
+15273
+------------------------
+
+------------------------
+2022.05.24 14:44:32
+__construct
+Array
+(
+    [event] => ONIMBOTJOINCHAT
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [CHAT_TYPE] => P
+                    [MESSAGE_TYPE] => P
+                    [BOT_ID] => 15273
+                    [USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [FROM_USER_ID] => 13815
+                    [DIALOG_ID] => 13815
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                )
+
+        )
+
+    [ts] => 1653392672
+    [auth] => Array
+        (
+            [access_token] => 30d38c62005b9ee00044c592000035f700000351edfe82f2e084e40c40902969b53353
+            [expires] => 1653396272
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:32
+eventHandler
+ONIMBOTJOINCHAT
+------------------------
+
+------------------------
+2022.05.24 14:44:32
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Привет! Я Докладун, докладываю все как есть.
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => [send=что горит]Что горит?[/send]
+                        )
+
+                )
+
+            [auth] => 30d38c62005b9ee00044c592000035f700000351edfe82f2e084e40c40902969b53353
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:32
+restCommand result
+Array
+(
+    [result] => 2536893
+    [time] => Array
+        (
+            [start] => 1653392672.5205
+            [finish] => 1653392672.9039
+            [duration] => 0.3834490776062
+            [processing] => 0.13926386833191
+            [date_start] => 2022-05-24T14:44:32+03:00
+            [date_finish] => 2022-05-24T14:44:32+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:32
+onImBotJoinChat
+ONIMBOTJOINCHAT
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => что горит
+                    [TEMPLATE_ID] => temp0
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2536894
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653392688
+    [auth] => Array
+        (
+            [access_token] => 41d38c62005b9ee00044c592000035f700000378bec284f8641754b072c00d3f1883c1
+            [expires] => 1653396289
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => 3152b462005b9ee00044c592000035f7000003033a44699c9107effaa8765ae6c26f11
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => что горит
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/task.item.list
+    [PARAMS] => Array
+        (
+            [ORDER] => Array
+                (
+                    [DEADLINE] => desc
+                )
+
+            [FILTER] => Array
+                (
+                    [RESPONSIBLE_ID] => 13815
+                    [<DEADLINE] => 2022-03-23
+                )
+
+            [PARAMS] => Array
+                (
+                )
+
+            [SELECT] => Array
+                (
+                )
+
+            [auth] => 41d38c62005b9ee00044c592000035f700000378bec284f8641754b072c00d3f1883c1
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+restCommand result
+Array
+(
+    [error] => insufficient_scope
+    [error_description] => The request requires higher privileges than provided by the access token
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Шикарно работаете!
+Нечем даже огорчить - ни одной просроченной задачи
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => 41d38c62005b9ee00044c592000035f700000378bec284f8641754b072c00d3f1883c1
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+restCommand result
+Array
+(
+    [result] => 2536895
+    [time] => Array
+        (
+            [start] => 1653392689.4203
+            [finish] => 1653392689.51
+            [duration] => 0.089725017547607
+            [processing] => 0.045606851577759
+            [date_start] => 2022-05-24T14:44:49+03:00
+            [date_finish] => 2022-05-24T14:44:49+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:44:49
+onImBotMessageAdd answer
+Array
+(
+    [title] => Шикарно работаете!
+    [report] => Нечем даже огорчить - ни одной просроченной задачи
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => Что горит
+                    [TEMPLATE_ID] => temp1
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2536899
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653392731
+    [auth] => Array
+        (
+            [access_token] => 6bd38c62005b9ee00044c592000035f7000003964fc4da71799045b47fc6d89c92c4f1
+            [expires] => 1653396331
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => 5b52b462005b9ee00044c592000035f70000032ebd9909675efede0dfefb164f30b185
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => Что горит
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/task.item.list
+    [PARAMS] => Array
+        (
+            [ORDER] => Array
+                (
+                    [DEADLINE] => desc
+                )
+
+            [FILTER] => Array
+                (
+                    [RESPONSIBLE_ID] => 13815
+                    [<DEADLINE] => 2022-03-23
+                )
+
+            [PARAMS] => Array
+                (
+                )
+
+            [SELECT] => Array
+                (
+                )
+
+            [auth] => 6bd38c62005b9ee00044c592000035f7000003964fc4da71799045b47fc6d89c92c4f1
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+restCommand result
+Array
+(
+    [error] => insufficient_scope
+    [error_description] => The request requires higher privileges than provided by the access token
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Шикарно работаете!
+Нечем даже огорчить - ни одной просроченной задачи
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => 6bd38c62005b9ee00044c592000035f7000003964fc4da71799045b47fc6d89c92c4f1
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+restCommand result
+Array
+(
+    [result] => 2536900
+    [time] => Array
+        (
+            [start] => 1653392731.6986
+            [finish] => 1653392731.7752
+            [duration] => 0.076540946960449
+            [processing] => 0.035784006118774
+            [date_start] => 2022-05-24T14:45:31+03:00
+            [date_finish] => 2022-05-24T14:45:31+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:45:31
+onImBotMessageAdd answer
+Array
+(
+    [title] => Шикарно работаете!
+    [report] => Нечем даже огорчить - ни одной просроченной задачи
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:46:55
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => Привет
+                    [TEMPLATE_ID] => temp2
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2536905
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653392815
+    [auth] => Array
+        (
+            [access_token] => bfd38c62005b9ee00044c592000035f7000003f99834412a9fbe3d2c132ad20136b3db
+            [expires] => 1653396415
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => af52b462005b9ee00044c592000035f70000037a2a87be235a7bb0142d78d217999391
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:46:55
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 14:46:55
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => Привет
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:46:55
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Привет!
+Как у тебя настроение?
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => bfd38c62005b9ee00044c592000035f7000003f99834412a9fbe3d2c132ad20136b3db
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:46:55
+restCommand result
+Array
+(
+    [result] => 2536906
+    [time] => Array
+        (
+            [start] => 1653392815.7471
+            [finish] => 1653392815.9387
+            [duration] => 0.1916401386261
+            [processing] => 0.040311813354492
+            [date_start] => 2022-05-24T14:46:55+03:00
+            [date_finish] => 2022-05-24T14:46:55+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:46:55
+onImBotMessageAdd answer
+Array
+(
+    [title] => Привет!
+    [report] => Как у тебя настроение?
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:59:38
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => Хай
+                    [TEMPLATE_ID] => temp3
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2536979
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653393578
+    [auth] => Array
+        (
+            [access_token] => bad68c62005b9ee00044c592000035f70000032c6d33acea64313e9a6960c3fe454687
+            [expires] => 1653397178
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => aa55b462005b9ee00044c592000035f7000003403b99c34d1da4893d8d948c929a959d
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:59:38
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 14:59:38
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => Хай
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:59:38
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Туплю-с
+Не соображу, что вы хотите узнать. А может вообще не умею...
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => bad68c62005b9ee00044c592000035f70000032c6d33acea64313e9a6960c3fe454687
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:59:39
+restCommand result
+Array
+(
+    [result] => 2536980
+    [time] => Array
+        (
+            [start] => 1653393579.064
+            [finish] => 1653393579.2977
+            [duration] => 0.23366212844849
+            [processing] => 0.03889012336731
+            [date_start] => 2022-05-24T14:59:39+03:00
+            [date_finish] => 2022-05-24T14:59:39+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 14:59:39
+onImBotMessageAdd answer
+Array
+(
+    [title] => Туплю-с
+    [report] => Не соображу, что вы хотите узнать. А может вообще не умею...
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:39
+__construct
+Array
+(
+    [event] => ONIMBOTJOINCHAT
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [CHAT_TYPE] => L
+                    [MESSAGE_TYPE] => L
+                    [BOT_ID] => 15273
+                    [USER_ID] => 0
+                    [CHAT_ID] => 176229
+                    [CHAT_AUTHOR_ID] => 0
+                    [CHAT_ENTITY_TYPE] => LINES
+                    [CHAT_ENTITY_ID] => livechat|24|176228|15275
+                    [ACCESS_HISTORY] => 1
+                    [DIALOG_ID] => chat176229
+                    [LANGUAGE] => ru
+                )
+
+        )
+
+    [ts] => 1653393698
+    [auth] => Array
+        (
+            [access_token] => 33d78c62005b9ee00044c59200003bab000003e1811e88065634fc13ef3fb661c0978e
+            [expires] => 1653397299
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 15275
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:39
+eventHandler
+ONIMBOTJOINCHAT
+------------------------
+
+------------------------
+2022.05.24 15:01:39
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => chat176229
+            [MESSAGE] => Привет! Я Докладун, докладываю все как есть.
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => [send=что горит]Что горит?[/send]
+                        )
+
+                )
+
+            [auth] => 33d78c62005b9ee00044c59200003bab000003e1811e88065634fc13ef3fb661c0978e
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:39
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 15275
+                    [MESSAGE] => Хай
+                    [TO_CHAT_ID] => 176229
+                    [MESSAGE_TYPE] => L
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 15275
+                    [CHAT_ID] => 176229
+                    [CHAT_AUTHOR_ID] => 0
+                    [CHAT_ENTITY_TYPE] => LINES
+                    [CHAT_ENTITY_ID] => livechat|24|176228|15275
+                    [CHAT_ENTITY_DATA_1] => N|NONE|0|N|N|7267|1653393698|0|0|0
+                    [CHAT_ENTITY_DATA_2] => 
+                    [CHAT_ENTITY_DATA_3] => 
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [MESSAGE_ORIGINAL] => Хай
+                    [TO_USER_ID] => 0
+                    [DIALOG_ID] => chat176229
+                    [MESSAGE_ID] => 2536995
+                    [CHAT_TYPE] => L
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 15275
+                    [NAME] => Гость
+                    [FIRST_NAME] => Гость
+                    [LAST_NAME] => 
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => Y
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => Y
+                )
+
+        )
+
+    [ts] => 1653393698
+    [auth] => Array
+        (
+            [access_token] => 33d78c62005b9ee00044c59200003bab000003e1811e88065634fc13ef3fb661c0978e
+            [expires] => 1653397299
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 15275
+            [refresh_token] => 2356b462005b9ee00044c59200003bab000003a60a6352efe273dd763bbf9fb9490ed5
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:39
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 15:01:39
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => Хай
+    [USER_ID] => 15275
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:39
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => chat176229
+            [MESSAGE] => Туплю-с
+Не соображу, что вы хотите узнать. А может вообще не умею...
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => 33d78c62005b9ee00044c59200003bab000003e1811e88065634fc13ef3fb661c0978e
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:40
+restCommand result
+Array
+(
+    [result] => 2537001
+    [time] => Array
+        (
+            [start] => 1653393699.7553
+            [finish] => 1653393700.122
+            [duration] => 0.36665892601013
+            [processing] => 0.14424300193787
+            [date_start] => 2022-05-24T15:01:39+03:00
+            [date_finish] => 2022-05-24T15:01:40+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:40
+onImBotMessageAdd answer
+Array
+(
+    [title] => Туплю-с
+    [report] => Не соображу, что вы хотите узнать. А может вообще не умею...
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:40
+restCommand result
+Array
+(
+    [result] => 2537002
+    [time] => Array
+        (
+            [start] => 1653393699.7545
+            [finish] => 1653393700.1576
+            [duration] => 0.40314793586731
+            [processing] => 0.1119270324707
+            [date_start] => 2022-05-24T15:01:39+03:00
+            [date_finish] => 2022-05-24T15:01:40+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:01:40
+onImBotJoinChat
+ONIMBOTJOINCHAT
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => что горит
+                    [TEMPLATE_ID] => temp0
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2537007
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653393761
+    [auth] => Array
+        (
+            [access_token] => 71d78c62005b9ee00044c592000035f70000038c05d260bdef4ba909dad4e15116c8cd
+            [expires] => 1653397361
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => 6156b462005b9ee00044c592000035f7000003fdd4e49280edf8f397c0f889f9646852
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => что горит
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/task.item.list
+    [PARAMS] => Array
+        (
+            [ORDER] => Array
+                (
+                    [DEADLINE] => desc
+                )
+
+            [FILTER] => Array
+                (
+                    [RESPONSIBLE_ID] => 13815
+                    [<DEADLINE] => 2022-03-23
+                )
+
+            [PARAMS] => Array
+                (
+                )
+
+            [SELECT] => Array
+                (
+                )
+
+            [auth] => 71d78c62005b9ee00044c592000035f70000038c05d260bdef4ba909dad4e15116c8cd
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+restCommand result
+Array
+(
+    [error] => insufficient_scope
+    [error_description] => The request requires higher privileges than provided by the access token
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Шикарно работаете!
+Нечем даже огорчить - ни одной просроченной задачи
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => 71d78c62005b9ee00044c592000035f70000038c05d260bdef4ba909dad4e15116c8cd
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+restCommand result
+Array
+(
+    [result] => 2537008
+    [time] => Array
+        (
+            [start] => 1653393761.6916
+            [finish] => 1653393761.7901
+            [duration] => 0.098531007766724
+            [processing] => 0.0433030128479
+            [date_start] => 2022-05-24T15:02:41+03:00
+            [date_finish] => 2022-05-24T15:02:41+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:02:41
+onImBotMessageAdd answer
+Array
+(
+    [title] => Шикарно работаете!
+    [report] => Нечем даже огорчить - ни одной просроченной задачи
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => что горит
+                    [TEMPLATE_ID] => temp1
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2537011
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653393798
+    [auth] => Array
+        (
+            [access_token] => 96d78c62005b9ee00044c592000035f7000003d9bb0d87816cdd65539712c301a6314f
+            [expires] => 1653397398
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => 8656b462005b9ee00044c592000035f7000003fe478c5b2900c274d5a13c4aa96ed481
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => что горит
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/task.item.list
+    [PARAMS] => Array
+        (
+            [ORDER] => Array
+                (
+                    [DEADLINE] => desc
+                )
+
+            [FILTER] => Array
+                (
+                    [RESPONSIBLE_ID] => 13815
+                    [<DEADLINE] => 2022-03-23
+                )
+
+            [PARAMS] => Array
+                (
+                )
+
+            [SELECT] => Array
+                (
+                )
+
+            [auth] => 96d78c62005b9ee00044c592000035f7000003d9bb0d87816cdd65539712c301a6314f
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+restCommand result
+Array
+(
+    [error] => insufficient_scope
+    [error_description] => The request requires higher privileges than provided by the access token
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Шикарно работаете!
+Нечем даже огорчить - ни одной просроченной задачи
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => 96d78c62005b9ee00044c592000035f7000003d9bb0d87816cdd65539712c301a6314f
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+restCommand result
+Array
+(
+    [result] => 2537012
+    [time] => Array
+        (
+            [start] => 1653393798.5738
+            [finish] => 1653393798.6511
+            [duration] => 0.077328205108643
+            [processing] => 0.034028053283691
+            [date_start] => 2022-05-24T15:03:18+03:00
+            [date_finish] => 2022-05-24T15:03:18+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:03:18
+onImBotMessageAdd answer
+Array
+(
+    [title] => Шикарно работаете!
+    [report] => Нечем даже огорчить - ни одной просроченной задачи
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:11:44
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => что горит
+                    [TEMPLATE_ID] => temp4
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2537037
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653394304
+    [auth] => Array
+        (
+            [access_token] => 90d98c62005b9ee00044c592000035f7000003c0a9d4e05fe00c0bcd08a51d514ee18d
+            [expires] => 1653397904
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => 8058b462005b9ee00044c592000035f7000003b9b43d9c06c7b14f68e1fdaddfde918f
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:11:44
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 15:11:44
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => что горит
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:11:44
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/task.item.list
+    [PARAMS] => Array
+        (
+            [ORDER] => Array
+                (
+                    [DEADLINE] => desc
+                )
+
+            [FILTER] => Array
+                (
+                    [RESPONSIBLE_ID] => 13815
+                    [<DEADLINE] => 2022-03-23
+                )
+
+            [PARAMS] => Array
+                (
+                )
+
+            [SELECT] => Array
+                (
+                )
+
+            [auth] => 90d98c62005b9ee00044c592000035f7000003c0a9d4e05fe00c0bcd08a51d514ee18d
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:11:44
+restCommand result
+Array
+(
+    [error] => insufficient_scope
+    [error_description] => The request requires higher privileges than provided by the access token
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:11:44
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Шикарно работаете!
+Нечем даже огорчить - ни одной просроченной задачи
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => 90d98c62005b9ee00044c592000035f7000003c0a9d4e05fe00c0bcd08a51d514ee18d
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:11:45
+restCommand result
+Array
+(
+    [result] => 2537038
+    [time] => Array
+        (
+            [start] => 1653394304.9883
+            [finish] => 1653394305.0689
+            [duration] => 0.080585956573486
+            [processing] => 0.038192987442017
+            [date_start] => 2022-05-24T15:11:44+03:00
+            [date_finish] => 2022-05-24T15:11:45+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:11:45
+onImBotMessageAdd answer
+Array
+(
+    [title] => Шикарно работаете!
+    [report] => Нечем даже огорчить - ни одной просроченной задачи
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:12:23
+__construct
+Array
+(
+    [event] => ONIMBOTMESSAGEADD
+    [data] => Array
+        (
+            [BOT] => Array
+                (
+                    [15273] => Array
+                        (
+                            [domain] => p1.infoflot.ddp-dev.ru
+                            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                            [AUTH] => Array
+                                (
+                                    [domain] => p1.infoflot.ddp-dev.ru
+                                    [member_id] => 20db2a6970cdb3986729fa391fda6f64
+                                    [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+                                )
+
+                            [BOT_ID] => 15273
+                            [BOT_CODE] => ddplanet
+                        )
+
+                )
+
+            [PARAMS] => Array
+                (
+                    [FROM_USER_ID] => 13815
+                    [TO_USER_ID] => 15273
+                    [MESSAGE] => что горит
+                    [TEMPLATE_ID] => temp5
+                    [MESSAGE_TYPE] => P
+                    [SKIP_COMMAND] => N
+                    [SKIP_CONNECTOR] => N
+                    [IMPORTANT_CONNECTOR] => N
+                    [SILENT_CONNECTOR] => N
+                    [AUTHOR_ID] => 13815
+                    [CHAT_ID] => 176226
+                    [COMMAND_CONTEXT] => TEXTAREA
+                    [DIALOG_ID] => 13815
+                    [MESSAGE_ID] => 2537041
+                    [CHAT_TYPE] => P
+                    [LANGUAGE] => ru
+                )
+
+            [USER] => Array
+                (
+                    [ID] => 13815
+                    [NAME] => Никита Филитов
+                    [FIRST_NAME] => Никита
+                    [LAST_NAME] => Филитов
+                    [WORK_POSITION] => 
+                    [GENDER] => M
+                    [IS_BOT] => N
+                    [IS_CONNECTOR] => N
+                    [IS_NETWORK] => N
+                    [IS_EXTRANET] => N
+                )
+
+        )
+
+    [ts] => 1653394343
+    [auth] => Array
+        (
+            [access_token] => b7d98c62005b9ee00044c592000035f70000037c97b425e69a390e78ff4698a9f97bc4
+            [expires] => 1653397943
+            [expires_in] => 3600
+            [scope] => imbot,imopenlines,tasks_extended
+            [domain] => p1.infoflot.ddp-dev.ru
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [status] => L
+            [client_endpoint] => https://p1.infoflot.ddp-dev.ru/rest/
+            [member_id] => 20db2a6970cdb3986729fa391fda6f64
+            [user_id] => 13815
+            [refresh_token] => a758b462005b9ee00044c592000035f70000036d2a771fb916af9c2c0c1581de46a892
+            [application_token] => a8a7b87e83b4d8a5f6c01fbd032b8330
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:12:23
+eventHandler
+ONIMBOTMESSAGEADD
+------------------------
+
+------------------------
+2022.05.24 15:12:23
+onImBotMessageAdd
+Array
+(
+    [MESSAGE] => что горит
+    [USER_ID] => 13815
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:12:23
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/task.item.list
+    [PARAMS] => Array
+        (
+            [ORDER] => Array
+                (
+                    [DEADLINE] => desc
+                )
+
+            [FILTER] => Array
+                (
+                    [RESPONSIBLE_ID] => 13815
+                    [<DEADLINE] => 2022-05-24
+                )
+
+            [PARAMS] => Array
+                (
+                )
+
+            [SELECT] => Array
+                (
+                )
+
+            [auth] => b7d98c62005b9ee00044c592000035f70000037c97b425e69a390e78ff4698a9f97bc4
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:12:24
+restCommand result
+Array
+(
+    [error] => insufficient_scope
+    [error_description] => The request requires higher privileges than provided by the access token
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:12:24
+restCommand query
+Array
+(
+    [URL] => https://p1.infoflot.ddp-dev.ru/rest/imbot.message.add
+    [PARAMS] => Array
+        (
+            [DIALOG_ID] => 13815
+            [MESSAGE] => Шикарно работаете!
+Нечем даже огорчить - ни одной просроченной задачи
+
+            [ATTACH] => Array
+                (
+                    [0] => Array
+                        (
+                            [MESSAGE] => Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!
+                        )
+
+                )
+
+            [auth] => b7d98c62005b9ee00044c592000035f70000037c97b425e69a390e78ff4698a9f97bc4
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:12:24
+restCommand result
+Array
+(
+    [result] => 2537042
+    [time] => Array
+        (
+            [start] => 1653394344.2422
+            [finish] => 1653394344.3239
+            [duration] => 0.08176589012146
+            [processing] => 0.040956974029541
+            [date_start] => 2022-05-24T15:12:24+03:00
+            [date_finish] => 2022-05-24T15:12:24+03:00
+        )
+
+)
+
+------------------------
+
+------------------------
+2022.05.24 15:12:24
+onImBotMessageAdd answer
+Array
+(
+    [title] => Шикарно работаете!
+    [report] => Нечем даже огорчить - ни одной просроченной задачи
+)
+
+------------------------
