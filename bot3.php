@@ -152,154 +152,45 @@ class chatBot
             (in_array($_SERVER['SERVER_PORT'], [80, 443]) ? '' : ':' . $_SERVER['SERVER_PORT']) . $_SERVER['SCRIPT_NAME'];
     }
 
-    protected function getUserTasks(int $userId): array
-    {
-        $restParams = [
-            'ORDER' => ['DEADLINE' => 'desc'],
-            'FILTER' => ['RESPONSIBLE_ID' => $userId, '<DEADLINE' => '2022-05-24'],
-            'PARAMS' => [],
-            'SELECT' => []
-        ];
-
-        return $this->restCommand('task.item.list', $restParams) ?: [];
-    }
-
-    function getMenu ($result): array
-    {
-
-        restCommand('imbot.command.answer', Array(
-           "COMMAND_ID" => $result['COMMAND_ID'],
-            "MESSAGE_ID" => $result['MESSAGE_ID'],
-            "MESSAGE" => "Привет! Я Инфофлот бот",
-            "KEYBOARD" => Array(
-                Array(
-                    "TEXT" => "Bitrix24",
-                    "LINK" => "http://bitrix24.com",
-                    "BG_COLOR" => "#29619b",
-                    "TEXT_COLOR" => "#fff",
-                    "DISPLAY" => "LINE",
-                ),
-                Array(
-                    "TEXT" => "BitBucket",
-                    "LINK" => "https://bitbucket.org/Bitrix24com/rest-bot-echotest",
-                    "BG_COLOR" => "#2a4c7c",
-                    "TEXT_COLOR" => "#fff",
-                    "DISPLAY" => "LINE",
-                ),
-                Array("TYPE" => "NEWLINE"), // перенос строки
-                Array("TEXT" => "Echo", "COMMAND" => "echo", "COMMAND_PARAMS" => "test from keyboard", "DISPLAY" => "LINE"),
-                Array("TEXT" => "List", "COMMAND" => "echoList", "DISPLAY" => "LINE"),
-                Array("TEXT" => "Help", "COMMAND" => "help", "DISPLAY" => "LINE"),
-            )
-        ), $_REQUEST["auth"]);
-    }
-
-
-    function getUserTasksReport(int $userId): array
-    {
-        $tasks = $this->getUserTasks($userId);
-
-        if (count($tasks['result']) > 0) {
-            $arTasks = [];
-
-            foreach ($tasks['result'] as $arTask) {
-                $arTasks[] = [
-                    'LINK' => [
-                        'NAME' => $arTask['TITLE'],
-                        'LINK' => 'https://' . $this->getDomain() . '/company/personal/user/' . $arTask['RESPONSIBLE_ID'] . '/tasks/task/view/' . $arTask['ID'] . '/'
-                    ]
-                ];
-
-                $arTasks[] = [
-                    'DELIMITER' => [
-                        'SIZE' => 400,
-                        'COLOR' => '#c6c6c6'
-                    ]
-                ];
-            }
-
-            $arReport = [
-                'title' => 'Да, кое-какие задачи уже пролетели, например:',
-                'report' => '',
-                'attach' => $arTasks
-            ];
-        } else {
-            $arReport = [
-                'title' => 'Шикарно работаете!',
-                'report' => 'Нечем даже огорчить - ни одной просроченной задачи',
-            ];
-        }
-
-        return $arReport;
-    }
-
-
-
-    protected function getAnswer(string $message, ?int $userId = null): array
-    {
-        switch (mb_strtolower($message)) {
-            case 'что горит':
-                $arAnswer = $this->getUserTasksReport($userId);
-                break;
-
-            case '1':
-                $restParams =  Array(
-                    'BOT_ID' => 15273, // Идентификатор чат-бота владельца команды
-                    'COMMAND' => '1', // Текст команды, которую пользователь будет вводить в чатах
-                    'COMMON' => 'Y', // Если указан Y, то команда доступна во всех чатах, если N - то доступна только в тех, где присутствует чат-бот
-                    'HIDDEN' => 'N', // Скрытая команда или нет - по умолчанию N
-                    'EXTRANET_SUPPORT' => 'N', // Доступна ли команда пользователям Экстранет, по умолчанию N
-                    'CLIENT_ID' => '', // Строковый идентификатор чат-бота, используется только в режиме Вебхуков
-                    'LANG' => Array( // Массив переводов, обязательно указывать как минимум для RU и EN
-                        Array('LANGUAGE_ID' => 'en', 'TITLE' => 'Get echo message', 'PARAMS' => 'some text'), // Язык, описание команды, какие данные после команды нужно вводить.
-                    ),
-                    'EVENT_COMMAND_ADD' => 'https://p1.infoflot.ddp-dev.ru/bot3.php', // Ссылка на обработчик для команд
-                );
-                $result = $this->restCommand('imbot.comand.register', $restParams);
-                $arAnswer = $this->getMenu($result);
-                break;
-
-            case 'привет':
-                $arAnswer = [
-                    'title' => 'Привет!',
-                    'report' => 'Как у тебя настроение?'
-                ];
-                break;
-
-            default:
-                $arAnswer = [
-                    'title' => 'Туплю-с',
-                    'report' => 'Не соображу, что вы хотите узнать. А может вообще не умею...',
-                ];
-        }
-
-        return $arAnswer;
-    }
-
     protected function onImBotMessageAdd(): void
     {
         if (empty($this->getChatBotConfig())) {
             return;
         }
 
-        $this->writeToLog([
-            'MESSAGE' => $_REQUEST['data']['PARAMS']['MESSAGE'],
-            'USER_ID' => $_REQUEST['data']['PARAMS']['FROM_USER_ID']
-        ], 'onImBotMessageAdd');
+        $this->writeToLog($_REQUEST['data']['PARAMS']['MESSAGE'], 'onImBotMessageAdd');
 
-        $arAnswer = $this->getAnswer($_REQUEST['data']['PARAMS']['MESSAGE'], $_REQUEST['data']['PARAMS']['FROM_USER_ID']);
-        $arAnswer['attach'][] = [
-            'MESSAGE' => 'Как разберетесь с этими задачами, просто спросите еще раз [send=что горит]Что горит?[/send] и я дам новую сводку!'
-        ];
+        if ($_REQUEST['data']['PARAMS']['CHAT_ENTITY_TYPE'] == 'LINES') {
+            list($message) = explode(" ", $_REQUEST['data']['PARAMS']['MESSAGE']);
 
-        $restParams = [
-            "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
-            "MESSAGE" => $arAnswer['title'] . "\n" . $arAnswer['report'] . "\n",
-            "ATTACH" => $arAnswer['attach'],
-        ];
+            if ($message == '1') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Im EchoBot, i can repeat message after you and send menu in Open Channels![br]Look new chat-bot created specifically for Open Channels - [b]ITR Bot[/b] http://birix24.ru/~bot-itr',
+                ];
+            } else if ($message == '0') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Wait for an answer!',
+                ];
+            }
+        } else {
+            $latency = (time() - $_REQUEST['ts']);
+            $latency = $latency > 60 ? (round($latency / 60)) . 'm' : $latency . "s";
 
-        $this->restCommand('imbot.message.add', $restParams);
-        $this->writeToLog($arAnswer, 'onImBotMessageAdd answer');
+            $restParams = [
+                "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                "MESSAGE" => "Message from bot",
+                "ATTACH" => [
+                    ["MESSAGE" => "reply: " . $_REQUEST['data']['PARAMS']['MESSAGE']],
+                    ["MESSAGE" => "latency: " . $latency]
+                ]
+            ];
+        }
+
+        if (!empty($restParams)) {
+            $this->restCommand('imbot.message.add', $restParams);
+        }
     }
 
     protected function onImBotJoinChat(): void
@@ -307,12 +198,30 @@ class chatBot
         if (empty($this->getChatBotConfig())) {
             return;
         }
-        
-        $restParams = [
-            'DIALOG_ID' => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
-            'MESSAGE' => 'Привет! Я Докладун, докладываю все как есть.',
-            "ATTACH" => [['MESSAGE' => '[send=что горит]Что горит?[/send]']],
-        ];
+
+        if ($_REQUEST['data']['PARAMS']['CHAT_ENTITY_TYPE'] == 'LINES') {
+            $message =
+                'ITR Menu:[br]' .
+                '[send=1]1. find out more about me[/send][br]' .
+                '[send=0]0. wait for operator response[/send]';
+
+            $restParams = [
+                "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                "MESSAGE" => $message,
+            ];
+        } else {
+            $restParams = [
+                "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                "MESSAGE" => "Welcome message from bot.",
+                "ATTACH" => [
+                    ["MESSAGE" => [$_REQUEST['data']['PARAMS']['CHAT_TYPE'] == 'P' ? 'Private instructions' : 'Chat instructions']],
+                    ["MESSAGE" => [$_REQUEST['data']['PARAMS']['CHAT_TYPE'] == 'P' ? '[send=send message]Click for send[/send] or [put=something...]write something[/put]' : "[send=send message]click for send[/send] or [put=put message to textarea]click for put[/put]"]],
+                ],
+                "KEYBOARD" => [
+                    ["TEXT" => "Help", "COMMAND" => "help"],
+                ]
+            ];
+        }
 
         $this->restCommand('imbot.message.add', $restParams);
         $this->writeToLog($_REQUEST['event'], 'onImBotJoinChat');
@@ -328,19 +237,18 @@ class chatBot
         $this->writeToLog($_REQUEST['event'], 'onImBotDelete');
     }
 
-    protected function onAppInstall(): void
+    protected function imBotRegister(): ?int
     {
-        $appsConfig = $this->getAppsConfig();
         $handlerBackUrl = static::getHandlerBackUrl();
 
         $restParams = [
-            'CODE' => 'ddplanet',
+            'CODE' => 'ddplanet2',
             'TYPE' => 'O',
             'EVENT_MESSAGE_ADD' => $handlerBackUrl,
             'EVENT_WELCOME_MESSAGE' => $handlerBackUrl,
             'EVENT_BOT_DELETE' => $handlerBackUrl,
             'PROPERTIES' => [
-                'NAME' => 'DDPlanet Bot2',
+                'NAME' => 'DDPlanet Bot3',
                 'LAST_NAME' => '',
                 'COLOR' => 'RED',
                 'EMAIL' => 'no@mail.com',
@@ -351,16 +259,84 @@ class chatBot
         ];
 
         $result = $this->restCommand('imbot.register', $restParams);
+        return (int)$result['result'] ?: null;
+    }
 
-        if (empty($botId = $result['result'])) {
+    protected function commandRegister(int $botId, string $commandCode, array $params = []): ?int
+    {
+        $defaultParams = [
+            'BOT_ID' => $botId,
+            'COMMAND' => $commandCode,
+            'COMMON' => 'N',
+            'HIDDEN' => 'N',
+            'EXTRANET_SUPPORT' => 'N',
+            'LANG' => [],
+            'EVENT_COMMAND_ADD' => static::getHandlerBackUrl()
+        ];
+
+        $result = $this->restCommand('imbot.command.register', array_merge($defaultParams, $params));
+        return (int)$result['result'] ?: null;
+    }
+
+    protected function echoCommandRegister(int $botId): ?int
+    {
+        $commandParams = [
+            'COMMON' => 'Y',
+            'LANG' => [
+                ['LANGUAGE_ID' => 'en', 'TITLE' => 'Get list of colors', 'PARAMS' => ''],
+            ],
+        ];
+
+        return $this->commandRegister($botId, 'echo', $commandParams);
+    }
+
+    protected function echoListCommandRegister(int $botId): ?int
+    {
+        $commandParams = [
+            'LANG' => [
+                ['LANGUAGE_ID' => 'en', 'TITLE' => 'Get list of colors', 'PARAMS' => ''],
+            ],
+        ];
+
+        return $this->commandRegister($botId, 'echoList', $commandParams);
+    }
+
+    protected function helpCommandRegister(int $botId): ?int
+    {
+        $commandParams = [
+            'LANG' => [
+                ['LANGUAGE_ID' => 'en', 'TITLE' => 'Get help message', 'PARAMS' => 'some text'],
+            ],
+        ];
+
+        return $this->commandRegister($botId, 'help', $commandParams);
+    }
+
+    protected function commandsRegister(int $botId)
+    {
+        $this->echoCommandRegister($botId);
+        $this->echoListCommandRegister($botId);
+        $this->helpCommandRegister($botId);
+    }
+
+    protected function bindEvent(string $eventName): void
+    {
+        $this->restCommand('event.bind', [
+            'EVENT' => $eventName,
+            'HANDLER' => static::getHandlerBackUrl()
+        ]);
+    }
+
+    protected function onAppInstall(): void
+    {
+        if (empty($botId = $this->imBotRegister())) {
             return;
         }
 
-        $this->restCommand('event.bind', [
-            'EVENT' => 'OnAppUpdate',
-            'HANDLER' => $handlerBackUrl
-        ]);
+        $this->commandsRegister($botId);
+        $this->bindEvent('OnAppUpdate');
 
+        $appsConfig = $this->getAppsConfig();
         $appsConfig[$this->getApplicationToken()] = [
             'BOT_ID' => $botId,
             'LANGUAGE_ID' => $_REQUEST['data']['LANGUAGE_ID'],
@@ -378,6 +354,149 @@ class chatBot
 
         $result = $this->restCommand('app.info');
         $this->writeToLog($result, 'onAppUpdate');
+    }
+
+    protected function onImCommandAdd(): void
+    {
+        if (empty($this->getChatBotConfig())) {
+            return;
+        }
+
+        foreach ($_REQUEST['data']['COMMAND'] as $command) {
+            switch ($command['COMMAND']) {
+                case 'echo':
+                    $latency = (time() - $_REQUEST['ts']);
+                    $latency = $latency > 60 ? (round($latency / 60)) . 'm' : $latency . "s";
+
+                    $this->restCommand('imbot.command.answer', [
+                        "COMMAND_ID" => $command['COMMAND_ID'],
+                        "MESSAGE_ID" => $command['MESSAGE_ID'],
+                        "MESSAGE" => "Answer command",
+                        "ATTACH" => [
+                            ["MESSAGE" => "reply: /" . $command['COMMAND'] . ' ' . $command['COMMAND_PARAMS']],
+                            ["MESSAGE" => "latency: " . $latency],
+                        ]
+                    ]);
+                    break;
+                case 'echoList':
+                    $initList = false;
+
+                    if (!$command['COMMAND_PARAMS']) {
+                        $initList = true;
+                        $command['COMMAND_PARAMS'] = 1;
+                    }
+
+                    $attach = [];
+                    switch ($command['COMMAND_PARAMS']) {
+                        case 1:
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "RED", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#df532d", "COLOR" => "#df532d", "DISPLAY" => "LINE"],
+                            ]];
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "GRAPHITE", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#3a403e", "COLOR" => "#3a403e", "DISPLAY" => "LINE"],
+                            ]];
+                            break;
+                        case 2:
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "MINT", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#4ba984", "COLOR" => "#4ba984", "DISPLAY" => "LINE"],
+                            ]];
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "LIGHT BLUE", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#6fc8e5", "COLOR" => "#6fc8e5", "DISPLAY" => "LINE"],
+                            ]];
+                            break;
+                        case 3:
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "PURPLE", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#8474c8", "COLOR" => "#8474c8", "DISPLAY" => "LINE"],
+                            ]];
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "AQUA", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#1eb4aa", "COLOR" => "#1eb4aa", "DISPLAY" => "LINE"],
+                            ]];
+                            break;
+                        case 4:
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "PINK", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#e98fa6", "COLOR" => "#e98fa6", "DISPLAY" => "LINE"],
+                            ]];
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "LIME", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#85cb7b", "COLOR" => "#85cb7b", "DISPLAY" => "LINE"],
+                            ]];
+                            break;
+                        case 5:
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "AZURE", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#29619b", "COLOR" => "#29619b", "DISPLAY" => "LINE"],
+                            ]];
+                            $attach[] = ["GRID" => [
+                                ["VALUE" => "ORANGE", "DISPLAY" => "LINE", "WIDTH" => 100],
+                                ["VALUE" => "#e8a441", "COLOR" => "#e8a441", "DISPLAY" => "LINE"],
+                            ]];
+                            break;
+
+                    }
+
+                    $keyboard = [
+                        ["TEXT" => $command['COMMAND_PARAMS'] == 1 ? "· 1 ·" : "1", "COMMAND" => "echoList", "COMMAND_PARAMS" => "1", "DISPLAY" => "LINE", "BLOCK" => "Y"],
+                        ["TEXT" => $command['COMMAND_PARAMS'] == 2 ? "· 2 ·" : "2", "COMMAND" => "echoList", "COMMAND_PARAMS" => "2", "DISPLAY" => "LINE", "BLOCK" => "Y"],
+                        ["TEXT" => $command['COMMAND_PARAMS'] == 3 ? "· 3 ·" : "3", "COMMAND" => "echoList", "COMMAND_PARAMS" => "3", "DISPLAY" => "LINE", "BLOCK" => "Y"],
+                        ["TEXT" => $command['COMMAND_PARAMS'] == 4 ? "· 4 ·" : "4", "COMMAND" => "echoList", "COMMAND_PARAMS" => "4", "DISPLAY" => "LINE", "BLOCK" => "Y"],
+                        ["TEXT" => $command['COMMAND_PARAMS'] == 5 ? "· 5 ·" : "5", "COMMAND" => "echoList", "COMMAND_PARAMS" => "5", "DISPLAY" => "LINE", "BLOCK" => "Y"],
+                    ];
+
+                    if (!$initList && $command['COMMAND_CONTEXT'] == 'KEYBOARD') {
+                        $this->restCommand('imbot.message.update', [
+                            "BOT_ID" => $command['BOT_ID'],
+                            "MESSAGE_ID" => $command['MESSAGE_ID'],
+                            "ATTACH" => $attach,
+                            "KEYBOARD" => $keyboard
+                        ]);
+                    } else {
+                        $this->restCommand('imbot.command.answer', [
+                            "COMMAND_ID" => $command['COMMAND_ID'],
+                            "MESSAGE_ID" => $command['MESSAGE_ID'],
+                            "MESSAGE" => "List of colors",
+                            "ATTACH" => $attach,
+                            "KEYBOARD" => $keyboard
+                        ]);
+                    }
+                    break;
+                case 'help':
+                    $keyboard = [
+                        [
+                            "TEXT" => "Да",
+                            'LINK' => "http://bitrix24.com",
+                            "BG_COLOR" => "#29619b",
+                            "TEXT_COLOR" => "#fff",
+                            "DISPLAY" => "LINE",
+                        ],
+                        [
+                            "TEXT" => "",
+                            "LINK" => "https://bitbucket.org/Bitrix24com/rest-bot-echotest",
+                            "BG_COLOR" => "#2a4c7c",
+                            "TEXT_COLOR" => "#fff",
+                            "DISPLAY" => "LINE",
+                        ],
+                        ["TYPE" => "NEWLINE"],
+                        ["TEXT" => "Echo", "COMMAND" => "echo", "COMMAND_PARAMS" => "test from keyboard", "DISPLAY" => "LINE"],
+                        ["TEXT" => "List", "COMMAND" => "echoList", "DISPLAY" => "LINE"],
+                        ["TEXT" => "Help", "COMMAND" => "help", "DISPLAY" => "LINE"],
+                    ];
+
+                    $this->restCommand('imbot.command.answer', [
+                        "COMMAND_ID" => $command['COMMAND_ID'],
+                        "MESSAGE_ID" => $command['MESSAGE_ID'],
+                        "MESSAGE" => "Hello! My name is EchoBot :)[br] I designed to answer your questions!",
+                        "KEYBOARD" => $keyboard
+                    ]);
+                    break;
+            }
+        }
     }
 
     public function eventHandler(): void
@@ -399,6 +518,9 @@ class chatBot
                 break;
             case 'ONAPPUPDATE':
                 $this->onAppUpdate();
+                break;
+            case 'ONIMCOMMANDADD':
+                $this->onImCommandAdd();
                 break;
         }
     }

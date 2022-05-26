@@ -25,5 +25,10 @@ $appsConfig = array (
     'BOT_ID' => '15273',
     'LANGUAGE_ID' => 'ru',
   ),
+  '669ba62a4bbb13d2207492bf65584dd0' => 
+  array (
+    'BOT_ID' => 15283,
+    'LANGUAGE_ID' => 'ru',
+  ),
 );
 ?>

@@ -166,14 +166,87 @@ class chatBot
             if ($message == '1') {
                 $restParams = [
                     "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
-                    "MESSAGE" => 'Im EchoBot, i can repeat message after you and send menu in Open Channels![br]Look new chat-bot created specifically for Open Channels - [b]ITR Bot[/b] http://birix24.ru/~bot-itr',
+                    "MESSAGE" => 'Пожалуйста, ожидайте, я соединяю Вас с оператором. Возможно, мне потребуется от 1 до 3х минут, оставайтесь на линии',
                 ];
-            } else if ($message == '0') {
+            }
+            if ($message == '2') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Введите номер заявки (используйте # перед номером заявки)',
+
+                ];
+            }
+            if ($message == '3') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Пройдите по [url=http://www.infoflot.com/#online-scoreboard/] ссылке [/url]',
+                ];
+            }
+            if ($message == '4') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Пожалуйста, ожидайте, я соединяю Вас с оператором. Возможно, мне потребуется от 1 до 3х минут, оставайтесь на линии.',
+                ];
+            }
+            if ($message == '5') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Перевожу на оператора',
+                ];
+            }
+            if ($message == '6') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Перевожу на оператора',
+                ];
+            }
+            if (substr($message, 0, 1) == '#') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => '[send=2.1]2.1 Добавить пассажира[/send][br]'.
+                        '[send=2.2]2.2 Выбрать другую каюту/рейс[/send][br]'.
+                        '[send=form]2.3 Аннулировать [/send][br]',
+                ];
+            }
+            if ($message == 'form') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Оставьте заявку https://b24-wozmby.bitrix24.site/',
+                ];
+            }
+
+
+            if ($message == '2.1') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Пожалуйста, ожидайте, я соединяю Вас с оператором. Возможно, мне потребуется от 1 до 3х минут, оставайтесь на линии.',
+                ];
+            }
+            if ($message == '2.2') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Пожалуйста, ожидайте, я соединяю Вас с оператором. Возможно, мне потребуется от 1 до 3х минут, оставайтесь на линии.',
+                ];
+            }
+            if ($message == '2.3') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Пожалуйста, ожидайте, я соединяю Вас с оператором. Возможно, мне потребуется от 1 до 3х минут, оставайтесь на линии.',
+                ];
+            }
+
+            if ($message == '0') {
+                $restParams = [
+                    "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                    "MESSAGE" => 'Пожалуйста, ожидайте, я соединяю Вас с оператором. Возможно, мне потребуется от 1 до 3х минут, оставайтесь на линии.',
+                ];
+            }/*
+            else if ($message == '0') {
                 $restParams = [
                     "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
                     "MESSAGE" => 'Wait for an answer!',
                 ];
-            }
+            }*/
         } else {
             $latency = (time() - $_REQUEST['ts']);
             $latency = $latency > 60 ? (round($latency / 60)) . 'm' : $latency . "s";
@@ -201,18 +274,41 @@ class chatBot
 
         if ($_REQUEST['data']['PARAMS']['CHAT_ENTITY_TYPE'] == 'LINES') {
             $message =
-                'ITR Menu:[br]' .
-                '[send=1]1. find out more about me[/send][br]' .
-                '[send=0]0. wait for operator response[/send]';
+                'Выберите тему обращения:[br]' .
+                '[send=1]1. Забронировать круиз[/send][br]'.
+                '[send=2]2. Вопрос по заявке[/send][br]'.
+                '[send=3]3. Посмотреть табло [/send][br]'.
+                '[send=4]4. Вопрос по возврату[/send][br]'.
+                '[send=5]5. Другой вопрос[/send][br]'.
+                '[send=5]6. Я агент[/send][br]';
+                '[send=#]6. Номер заявки[/send][br]';
+                '[send=2.1]2.1 Добавить пассажира[/send][br]'.
+                '[send=2.2]2.2 Выбрать другую каюту/рейс[/send][br]'.
+                '[send=2.3]2.3 Аннулировать [/send][br]';
 
             $restParams = [
                 "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
                 "MESSAGE" => $message,
             ];
-        } else {
+        }
+    /*
+        if ($_REQUEST['data']['PARAMS']['CHAT_ENTITY_TYPE'] == 'LINES') {
+            $message =
+                'Выберите тему обращения:[br]' .
+                '[send=2.1]2.1 Добавить пассажира[/send][br]'.
+                '[send=2.2]2.2 Выбрать другую каюту/рейс[/send][br]'.
+                '[send=2.3]2.3 Другой вопрос [/send][br]';
             $restParams = [
                 "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
-                "MESSAGE" => "Welcome message from bot.",
+                "MESSAGE" => $message,
+            ];
+        }
+
+*/
+        else {
+            $restParams = [
+                "DIALOG_ID" => $_REQUEST['data']['PARAMS']['DIALOG_ID'],
+                "MESSAGE" => "Введите корректную команду",
                 "ATTACH" => [
                     ["MESSAGE" => [$_REQUEST['data']['PARAMS']['CHAT_TYPE'] == 'P' ? 'Private instructions' : 'Chat instructions']],
                     ["MESSAGE" => [$_REQUEST['data']['PARAMS']['CHAT_TYPE'] == 'P' ? '[send=send message]Click for send[/send] or [put=something...]write something[/put]' : "[send=send message]click for send[/send] or [put=put message to textarea]click for put[/put]"]],
@@ -242,13 +338,13 @@ class chatBot
         $handlerBackUrl = static::getHandlerBackUrl();
 
         $restParams = [
-            'CODE' => 'ddplanet',
+            'CODE' => 'ddplanet2',
             'TYPE' => 'O',
             'EVENT_MESSAGE_ADD' => $handlerBackUrl,
             'EVENT_WELCOME_MESSAGE' => $handlerBackUrl,
             'EVENT_BOT_DELETE' => $handlerBackUrl,
             'PROPERTIES' => [
-                'NAME' => 'DDPlanet Bot2',
+                'NAME' => 'DDPlanet Bot3',
                 'LAST_NAME' => '',
                 'COLOR' => 'RED',
                 'EMAIL' => 'no@mail.com',
@@ -469,23 +565,23 @@ class chatBot
                 case 'help':
                     $keyboard = [
                         [
-                            "TEXT" => "Bitrix24",
+                            "TEXT" => "Да",
                             'LINK' => "http://bitrix24.com",
                             "BG_COLOR" => "#29619b",
                             "TEXT_COLOR" => "#fff",
                             "DISPLAY" => "LINE",
                         ],
                         [
-                            "TEXT" => "BitBucket",
+                            "TEXT" => "Верно",
                             "LINK" => "https://bitbucket.org/Bitrix24com/rest-bot-echotest",
                             "BG_COLOR" => "#2a4c7c",
                             "TEXT_COLOR" => "#fff",
                             "DISPLAY" => "LINE",
                         ],
-                        ["TYPE" => "NEWLINE"],
+                     /*   ["TYPE" => "NEWLINE"],
                         ["TEXT" => "Echo", "COMMAND" => "echo", "COMMAND_PARAMS" => "test from keyboard", "DISPLAY" => "LINE"],
                         ["TEXT" => "List", "COMMAND" => "echoList", "DISPLAY" => "LINE"],
-                        ["TEXT" => "Help", "COMMAND" => "help", "DISPLAY" => "LINE"],
+                        ["TEXT" => "Help", "COMMAND" => "help", "DISPLAY" => "LINE"],*/
                     ];
 
                     $this->restCommand('imbot.command.answer', [
